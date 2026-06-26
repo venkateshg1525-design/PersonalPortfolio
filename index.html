@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venkatesh G | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid #334155;
+        }
+
+        /* Profile Header Section */
+        .profile-header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 30px;
+        }
+
+        .photo-box {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background-color: #334155;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid #38bdf8;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+        }
+
+        .photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-header h1 {
+            font-size: 2.8rem;
+            color: #f8fafc;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .profile-header .title {
+            font-size: 1.25rem;
+            color: #38bdf8;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Contact Details Styles with Copy Actions */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #0f172a;
+            padding: 6px 14px;
+            border-radius: 6px;
+            border: 1px solid #334155;
+        }
+
+        .btn-copy {
+            background: #334155;
+            border: none;
+            color: #38bdf8;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-copy:hover {
+            background: #475569;
+            color: #f8fafc;
+        }
+
+        /* Dual Column Split Layout for Badges */
+        .badge-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: start;
+            justify-items: center;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 650px) {
+            .badge-columns {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* GitHub Impressive Box */
+        .github-custom-card {
+            background: #0f172a;
+            border: 1px solid #475569;
+            border-radius: 10px;
+            padding: 24px;
+            width: 100%;
+            max-width: 300px;
+            text-align: left;
+            height: 290px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .github-card-top h3 {
+            color: #f8fafc;
+            font-size: 1.25rem;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .github-card-top .username {
+            color: #38bdf8;
+            font-size: 0.95rem;
+            font-family: monospace;
+            margin-bottom: 15px;
+        }
+
+        .github-card-top p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .btn-github-view {
+            display: block;
+            text-align: center;
+            background: #24292e;
+            color: #fff;
+            padding: 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid #475569;
+            transition: background 0.2s;
+        }
+
+        .btn-github-view:hover {
+            background: #2f363d;
+        }
+
+        /* Center Resume Button Container */
+        .resume-btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .btn-resume {
+            display: inline-block;
+            padding: 12px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            background-color: #22c55e;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .btn-resume:hover {
+            background-color: #16a34a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(34, 197, 94, 0.3);
+        }
+
+        /* Sections Styling */
+        h2 {
+            font-size: 1.6rem;
+            color: #f8fafc;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 8px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .about-text {
+            color: #cbd5e1;
+            text-align: justify;
+        }
+
+        /* Skills Tags */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .skills-list li {
+            background: #334155;
+            color: #f1f5f9;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #475569;
+        }
+
+        /* Projects Section */
+        .project-card {
+            background: #0f172a;
+            border-left: 4px solid #38bdf8;
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 20px;
+            border-top: 1px solid #334155;
+            border-right: 1px solid #334155;
+            border-bottom: 1px solid #334155;
+        }
+
+        .project-card h3 {
+            font-size: 1.25rem;
+            color: #f8fafc;
+            margin-bottom: 8px;
+        }
+
+        .project-card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Profile Header -->
+        <header class="profile-header">
+            <div class="photo-box">
+                <img src="v2.jpg" alt="Venkatesh G">
+            </div>
+            <h1>Venkatesh G</h1>
+            <div class="title">BE Student | Backend & Software Developer (Fresher)</div>
+            
+            <!-- Contact Info Items with JavaScript Copy Functions Included -->
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📞 <span id="phoneNum">+918792124962</span></span>
+                    <button class="btn-copy" onclick="copyContact('phoneNum', this)">Copy</button>
+                </div>
+                <div class="contact-item">
+                    <span>✉️ <span id="emailAdd">venkateshg1525@gmail.com</span></span>
+                    <button class="btn-copy" onclick="copyContact('emailAdd', this)">Copy</button>
+                </div>
+            </div>
+            
+            <!-- Side-by-Side Split Badges Row -->
+            <div class="badge-columns">
+                
+                <!-- Left Column: Pure Automated Script LinkedIn Badge -->
+                <div class="linkedin-badge-wrapper">
+                    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="venkatesh-g-0016182bb" data-version="v1"></div>
+                </div>
+
+                <!-- Right Column: Premium Simple GitHub Card -->
+                <div class="github-custom-card">
+                    <div class="github-card-top">
+                        <h3>GitHub</h3>
+                        <div class="username">venkateshg1525-design</div>
+                        <p style="margin-top: 15px;">
+                            Explore my public repositories, technical codebases, backend utilities, and full-stack software implementation workflows.
+                        </p>
+                    </div>
+                    <a href="https://github.com/venkateshg1525-design" target="_blank" class="btn-github-view">Explore Profile</a>
+                </div>
+
+            </div>
+
+            <!-- Bottom Center: Download Resume Button -->
+            <div class="resume-btn-container">
+                <a href="Venkateh_G_Resume_v2.pdf" download class="btn btn-resume">Download Resume</a>
+            </div>
+        </header>
+
+        <!-- About Me Section -->
+        <section class="section">
+            <h2>About Me</h2>
+            <p class="about-text">
+                I am a dedicated 7th-semester Information Science and Engineering student at SJC Institute of Technology maintaining a strong 8.8 CGPA. I thrive on core problem-solving, pick up new technologies quickly, and pride myself on staying calm under pressure to deliver quality results. As an execution-focused fresher, I am driven, committed, and ready to contribute effectively to a dynamic development team.
+            </p>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section">
+            <h2>Skills & Certifications</h2>
+            <ul class="skills-list">
+                <li>C Programming</li>
+                <li>Python</li>
+                <li>Django Framework</li>
+                <li>JavaScript (Frontend basics)</li>
+                <li>SQL / Databases</li>
+                <li>Git & GitHub</li>
+                <li>NPTEL Cloud Computing</li>
+                <li>Cisco CCNA Introduction to Networks</li>
+            </ul>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section">
+            <h2>Projects</h2>
+            
+            <div class="project-card">
+                <h3>AI Based Healthcare Resource Demand Forecasting & Optimisation System</h3>
+                <p>A smart final year project system designed using core data analytics parameters to project facility and medical supply requirements accurately. Structured optimization strategies to streamline resource routing and maintain system reliability during fluid demand changes.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Software Quality Predictions using Machine Learning Models</h3>
+                <p>A mini project focused on building predictive frameworks using Machine Learning models to identify software defects and design vulnerabilities. Analyzed static code quality factors and baseline metric rules to evaluate robustness parameters before release phases.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>CALCY</h3>
+                <p>A responsive full-stack utility application configured with crisp server-side math operations and successfully managed end-to-end technical product pipelines onto Render.com.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JavaScript Copy Processing Function -->
+    <script>
+        function copyContact(elementId, button) {
+            const textToCopy = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = button.innerText;
+                button.innerText = "Copied!";
+                setTimeout(() => {
+                    button.innerText = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+    </script>
+
+    <!-- LinkedIn Script Initialization -->
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+</body>
+</html>
